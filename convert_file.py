@@ -178,6 +178,7 @@ mapping_dict = {
     "ghcl" : "GetReconstructedChargeCluster(%i)->fIsGhost",    
     "tdcl" : "GetReconstructedChargeCluster(%i)->fIs3DCluster",    
     "fidcl" : "GetReconstructedChargeCluster(%i)->fIsFiducial",   
+    "nsample" : "GetWaveformData()->fNumSamples",
      
         
      
@@ -198,7 +199,6 @@ mapping_dict = {
 
     #"chan" : "GetWaveformData().GetNumWaveforms()",
 # Must handle data specially...
-    #"nsample" : "",
     #"nele" : "", 
     #"data" : "", 
     #"nqele" : "", 
