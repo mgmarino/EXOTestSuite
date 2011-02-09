@@ -1,6 +1,7 @@
 import sys
 import re
 import ROOT
+import math
 
 
 """ 
@@ -176,9 +177,9 @@ mapping_dict = {
     "compton_dy2" : "fCompton.fY2Err",
     "compton_dz2" : "fCompton.fZ2Err",
      
-    "ghcl" : "GetReconstructedChargeCluster(%i).fIsGhost",    
-    "tdcl" : "GetReconstructedChargeCluster(%i).fIs3DCluster",    
-    "fidcl" : "GetReconstructedChargeCluster(%i).fIsFiducial",   
+    #"ghcl" : "GetReconstructedChargeCluster(%i).fIsGhost",    
+    #"tdcl" : "GetReconstructedChargeCluster(%i).fIs3DCluster",    
+    #"fidcl" : "GetReconstructedChargeCluster(%i).fIsFiducial",   
      
         
      
@@ -235,30 +236,42 @@ special_bool = {
 }
 not_yet_implemented = []
 
-def compare(old, new):
-    if old != new:
+def compare(old, new, old_branch, new_branch, entry):
+    if old != new and not (math.isnan(old) and math.isnan(new)):
         print '*'*60
+        print old_branch, new_branch, entry
         print old, new
         print '*'*60
 
 def compare_trees(old_tree, new_tree):
-    for branch in old_tree.GetListOfBranches():
-        if branch.GetName() in tref_list:
-            continue
-        if branch.GetName() in ignored:
-            continue
-        if branch.GetName() not in mapping_dict.keys():
-            not_yet_implemented.append(branch.GetName())
-            continue
-        event = new_tree.EventBranch
-        old_value = getattr(old_tree, branch.GetName())
-        temp_str = mapping_dict[branch.GetName()]
-        for i in range(len(old_value)):
-            temp = temp_str % i
-            new_value =  getattr(event, temp) 
-            compare(old_value[i], new_value)
+    for i in range(old_tree.GetEntries()):
+        old_tree.GetEntry(i)
+        new_tree.GetEntry(i)
+        print i
+        for branch in old_tree.GetListOfBranches():
+            if branch.GetName() in tref_list:
+                continue
+            if branch.GetName() in ignored:
+                continue
+            if branch.GetName() not in mapping_dict.keys():
+                if branch.GetName() not in not_yet_implemented:
+                    not_yet_implemented.append(branch.GetName())
+                continue
+            event = new_tree.EventBranch
+            old_value = getattr(old_tree, branch.GetName())
+            temp_str = mapping_dict[branch.GetName()]
+            try:
+                for j in range(len(old_value)):
+                    temp = temp_str % j
+                    new_value =  eval("event." + temp) 
+                    compare(old_value[j], new_value, branch.GetName(), temp, i)
+            except TypeError:
+                new_value =  eval("event." + temp_str) 
+                compare(old_value, new_value, branch.GetName(), temp_str, i)
             
 
 if __name__ == '__main__':
+    ROOT.gSystem.Load("libEXOUtilities")
     compare_trees(ROOT.TFile.Open(sys.argv[1]).Get("tree"), ROOT.TFile.Open(sys.argv[2]).Get("tree")) 
-    print oldfile
+    for branch in not_yet_implemented:
+        print branch
