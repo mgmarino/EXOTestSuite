@@ -30,7 +30,7 @@ def generate_doc_for_object(obj, previous = ""):
         if len(temp) > 1:
             old_value = temp[0]
             new_value = temp[1]
-        print "%s & \\lstinline!%s! & \\lstinline!%s! & \\lstinline!%s!\\\\" % (mem, data_mem.GetTypeName(), old_value, new_value)
+        print "%s & \\lstinline!%s! & \\lstinline!%s! & \\lstinline@%s@\\\\" % (mem, data_mem.GetTypeName(), old_value, new_value.lstrip())
     for amem in to_be_created: generate_doc_for_object(amem(), previous + "   ")
     print "\\hline" 
     for amem in get_members: generate_doc_for_object(amem, previous + "   ")
@@ -45,6 +45,7 @@ if __name__ == '__main__':
 \\usepackage{listings}
 \\usepackage{longtable}
 \\usepackage[hmargin=3cm,vmargin=3.5cm]{geometry}
+\\lstset{breaklines=true}
 \\begin{document}
 \\begin{longtable}{lllp{80pt}}
 \\hline
