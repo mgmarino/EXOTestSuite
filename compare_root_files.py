@@ -2,6 +2,7 @@ import sys
 import re
 import ROOT
 import math
+import ctypes
 
 
 """ 
@@ -110,8 +111,8 @@ mapping_dict = {
 
     #"csc" : "GetReconstructedScintillationCluster(%i).GetGangInfo(%i).fCounts",
     #"cerrsc" : "GetReconstructedScintillationCluster(%i).GetGangInfo(%i).fCountsErr",
-    #"chi2_APD1" : "GetReconstructedScintillationCluster(%i).fChiSquaredAPDOne",  
-    #"chi2_APD2" : "GetReconstructedScintillationCluster(%i).fChiSquaredAPDTwo",  
+    "chi2_APD1" : "fChiSquaredAPDOne",  
+    "chi2_APD2" : "fChiSquaredAPDTwo",  
 
     "xsc" : "GetReconstructedScintillationCluster(%i).fX",        
     "ysc" : "GetReconstructedScintillationCluster(%i).fY",        
@@ -176,11 +177,9 @@ mapping_dict = {
     "compton_dx2" : "fCompton.fX2Err",
     "compton_dy2" : "fCompton.fY2Err",
     "compton_dz2" : "fCompton.fZ2Err",
+    "nsample" : "GetWaveformData()->fNumSamples",
      
-    #"ghcl" : "GetReconstructedChargeCluster(%i).fIsGhost",    
-    #"tdcl" : "GetReconstructedChargeCluster(%i).fIs3DCluster",    
-    #"fidcl" : "GetReconstructedChargeCluster(%i).fIsFiducial",   
-     
+    
         
      
      
@@ -233,6 +232,9 @@ tref_list = [
    "scint_ichargecluster",
 ]
 special_bool = {
+    "ghcl" : "GetReconstructedChargeCluster(%i).fIsGhost",    
+    "tdcl" : "GetReconstructedChargeCluster(%i).fIs3DCluster",    
+    "fidcl" : "GetReconstructedChargeCluster(%i).fIsFiducial",   
 }
 not_yet_implemented = []
 
@@ -250,8 +252,17 @@ def compare_trees(old_tree, new_tree):
         print i
         for branch in old_tree.GetListOfBranches():
             if branch.GetName() in tref_list:
+                
                 continue
             if branch.GetName() in ignored:
+                continue
+            if branch.GetName() in special_bool.keys():
+                aleaf = old_tree.GetBranch(branch.GetName()).GetListOfLeaves()[0]
+                temp_str = special_bool[branch.GetName()]
+                for j in range(old_tree.ncl):
+                    temp = temp_str % j
+                    new_value =  eval("event." + temp) 
+                    compare(aleaf.GetValue(j) > 0, new_value, branch.GetName(), temp, i)
                 continue
             if branch.GetName() not in mapping_dict.keys():
                 if branch.GetName() not in not_yet_implemented:

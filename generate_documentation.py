@@ -13,7 +13,8 @@ def generate_doc_for_object(obj, previous = ""):
     data_list = [(member, the_class.GetDataMember(member)) for member 
                   in list_of_everything if the_class.GetDataMember(member)]
     output = previous + '*'*10 + ' ' + the_class.GetName()
-    print output + '*'*(boundary_limit - len(output)) 
+    #print output + '*'*(boundary_limit - len(output)) 
+    print previous + the_class.GetName()
     get_members = [getattr(obj, aname)() for aname in list_of_everything
                   if re.match("GetNew.*", aname)]
     to_be_created = []
@@ -30,10 +31,10 @@ def generate_doc_for_object(obj, previous = ""):
         if len(temp) > 1:
             old_value = temp[0]
             new_value = temp[1]
-        print "%s%s%-40s  %-15s  %-10s %-70s" % (previous, "   ", mem, data_mem.GetTypeName(), old_value, new_value)
+        #print "%s%s%-40s  %-15s  %-10s %-70s" % (previous, "   ", mem, data_mem.GetTypeName(), old_value, new_value)
     for amem in to_be_created: generate_doc_for_object(amem(), previous + "   ")
     for amem in get_members: generate_doc_for_object(amem, previous + "   ")
-    print previous + '*'*(boundary_limit - len(previous))
+    #print previous + '*'*(boundary_limit - len(previous))
 
 if __name__ == '__main__':
 

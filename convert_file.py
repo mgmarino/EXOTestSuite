@@ -16,9 +16,9 @@ mapping_dict = {
     "bb2n" : "fIsbb2nCandidate",  
     "alpha" : "fIsAlphaCandidate", 
     "nsite" : "fNumberOfSites", 
-    "errec" : "fTotalRawReconstructedEnergy", 
+    "errec" : "fTotalRawEnergy", 
     "eprec" : "fTotalPurityCorrectedEnergy", 
-    "ecrec" : "fTotalGridEfficiencyCorrectedReconstructedEnergy", 
+    "ecrec" : "fTotalGridEfficiencyCorrectedEnergy", 
     "depth" : "fDepth", 
     "ecsum" : "fCorrectedEnergySum", 
     "header" : "fEventHeader.fHeaderString",        
@@ -97,64 +97,64 @@ mapping_dict = {
     "etq" : "fMonteCarloData.GetPixelatedChargeDeposit(%i)->fTotalEnergykeV", 
     "eiq" : "fMonteCarloData.GetPixelatedChargeDeposit(%i)->fTotalIonizationEnergykeV", 
 
-    "c1sc" : "GetReconstructedScintillationCluster(%i)->fCountsOnAPDPlaneOne",       
-    "c1errsc" : "GetReconstructedScintillationCluster(%i)->fCountsOnAPDPlaneOneError",    
-    "c2sc" : "GetReconstructedScintillationCluster(%i)->fCountsOnAPDPlaneTwo",       
-    "c2errsc" : "GetReconstructedScintillationCluster(%i)->fCountsOnAPDPlaneTwoError",    
-    "c1sumsc" : "GetReconstructedScintillationCluster(%i)->fCountsSumOnAPDPlaneOne",    
-    "c1sumerrsc" : "GetReconstructedScintillationCluster(%i)->fCountsSumOnAPDPlaneOneError", 
-    "c2sumsc" : "GetReconstructedScintillationCluster(%i)->fCountsSumOnAPDPlaneTwo",    
-    "c2sumerrsc" : "GetReconstructedScintillationCluster(%i)->fCountsSumOnAPDPlaneTwoError", 
+    "c1sc" : "GetScintillationCluster(%i)->fCountsOnAPDPlaneOne",       
+    "c1errsc" : "GetScintillationCluster(%i)->fCountsOnAPDPlaneOneError",    
+    "c2sc" : "GetScintillationCluster(%i)->fCountsOnAPDPlaneTwo",       
+    "c2errsc" : "GetScintillationCluster(%i)->fCountsOnAPDPlaneTwoError",    
+    "c1sumsc" : "GetScintillationCluster(%i)->fCountsSumOnAPDPlaneOne",    
+    "c1sumerrsc" : "GetScintillationCluster(%i)->fCountsSumOnAPDPlaneOneError", 
+    "c2sumsc" : "GetScintillationCluster(%i)->fCountsSumOnAPDPlaneTwo",    
+    "c2sumerrsc" : "GetScintillationCluster(%i)->fCountsSumOnAPDPlaneTwoError", 
 
-    #"csc" : "GetReconstructedScintillationCluster(%i).GetGangInfo(%i).fCounts",
-    #"cerrsc" : "GetReconstructedScintillationCluster(%i).GetGangInfo(%i).fCountsErr",
-    #"chi2_APD1" : "GetReconstructedScintillationCluster(%i).fChiSquaredAPDOne",  
-    #"chi2_APD2" : "GetReconstructedScintillationCluster(%i).fChiSquaredAPDTwo",  
+    #"csc" : "GetScintillationCluster(%i).GetGangInfo(%i).fCounts",
+    #"cerrsc" : "GetScintillationCluster(%i).GetGangInfo(%i).fCountsErr",
+    #"chi2_APD1" : "GetScintillationCluster(%i).fChiSquaredAPDOne",  
+    #"chi2_APD2" : "GetScintillationCluster(%i).fChiSquaredAPDTwo",  
 
-    "xsc" : "GetReconstructedScintillationCluster(%i)->fX",        
-    "ysc" : "GetReconstructedScintillationCluster(%i)->fY",        
-    "zsc" : "GetReconstructedScintillationCluster(%i)->fZ",        
-    "tsc" : "GetReconstructedScintillationCluster(%i)->fTime",        
-    "rsc" : "GetReconstructedScintillationCluster(%i)->fRadius",        
-    "esc" : "GetReconstructedScintillationCluster(%i)->fEnergy",        
-    "algsc" : "GetReconstructedScintillationCluster(%i)->fAlgorithmUsed",      
+    "xsc" : "GetScintillationCluster(%i)->fX",        
+    "ysc" : "GetScintillationCluster(%i)->fY",        
+    "zsc" : "GetScintillationCluster(%i)->fZ",        
+    "tsc" : "GetScintillationCluster(%i)->fTime",        
+    "rsc" : "GetScintillationCluster(%i)->fRadius",        
+    "esc" : "GetScintillationCluster(%i)->fEnergy",        
+    "algsc" : "GetScintillationCluster(%i)->fAlgorithmUsed",      
 
-    "xcl" : "GetReconstructedChargeCluster(%i)->fX",  
-    "ycl" : "GetReconstructedChargeCluster(%i)->fY",  
-    "ucl" : "GetReconstructedChargeCluster(%i)->fU",  
-    "vcl" : "GetReconstructedChargeCluster(%i)->fV",  
-    "zcl" : "GetReconstructedChargeCluster(%i)->fZ",  
-    "dtcl" : "GetReconstructedChargeCluster(%i)->fDriftTime", 
-    "tcl" : "GetReconstructedChargeCluster(%i)->fCollectionTime",  
-
-
-    "ercl" : "GetReconstructedChargeCluster(%i)->fRawEnergy",   
-    "eccl" : "GetReconstructedChargeCluster(%i)->fCorrectedEnergy",   
-    "epcl" : "GetReconstructedChargeCluster(%i)->fPurityCorrectedEnergy",   
-    "eerrcl" : "GetReconstructedChargeCluster(%i)->fCorrectedEnergyError", 
-    "ncscl" : "GetReconstructedChargeCluster(%i)->fNumberOfCollectionSignals",   
-    "iu1cl" : "GetReconstructedChargeCluster(%i)->fChannelNumberOfFirstSignal",   
-    "iu2cl" : "GetReconstructedChargeCluster(%i)->fChannelNumberOfSecondSignal",   
-    "iu3cl" : "GetReconstructedChargeCluster(%i)->fChannelNumberOfThirdSignal",   
-    "iu4cl" : "GetReconstructedChargeCluster(%i)->fChannelNumberOfFourthSignal",   
-    "nvchcl" : "GetReconstructedChargeCluster(%i)->fNumberOfVChannels",  
-    "iv1cl" : "GetReconstructedChargeCluster(%i)->fVChannelNumberOne",   
-    "iv2cl" : "GetReconstructedChargeCluster(%i)->fVChannelNumberTwo",   
-    "dhalfcl" : "GetReconstructedChargeCluster(%i)->fDetectorHalf", 
-    "evcl" : "GetReconstructedChargeCluster(%i)->fEnergyInVChannels",    
+    "xcl" : "GetChargeCluster(%i)->fX",  
+    "ycl" : "GetChargeCluster(%i)->fY",  
+    "ucl" : "GetChargeCluster(%i)->fU",  
+    "vcl" : "GetChargeCluster(%i)->fV",  
+    "zcl" : "GetChargeCluster(%i)->fZ",  
+    "dtcl" : "GetChargeCluster(%i)->fDriftTime", 
+    "tcl" : "GetChargeCluster(%i)->fCollectionTime",  
 
 
-    "nusig" : "GetNumReconstructedWires()",             
-    "ncl" : "GetNumReconstructedChargeClusters()",             
-    "nsc" : "GetNumReconstructedScintillationClusters()",             
-    "usig_ch" : "GetReconstructedUWireSignal(%i)->fChannel",             
-    "usig_e" : "GetReconstructedUWireSignal(%i)->fEnergy",              
-    "usig_deltae" : "GetReconstructedUWireSignal(%i)->fEnergyError",         
-    "usig_t" : "GetReconstructedUWireSignal(%i)->fTime",              
-    "usig_deltat" : "GetReconstructedUWireSignal(%i)->fTimeError",         
-    "usig_baseline" : "GetReconstructedUWireSignal(%i)->fBaseline",       
-    "usig_deltabaseline" : "GetReconstructedUWireSignal(%i)->fBaselineError",  
-    "usig_chi2" : "GetReconstructedUWireSignal(%i)->fChiSquare",           
+    "ercl" : "GetChargeCluster(%i)->fRawEnergy",   
+    "eccl" : "GetChargeCluster(%i)->fCorrectedEnergy",   
+    "epcl" : "GetChargeCluster(%i)->fPurityCorrectedEnergy",   
+    "eerrcl" : "GetChargeCluster(%i)->fCorrectedEnergyError", 
+    "ncscl" : "GetChargeCluster(%i)->fNumberOfCollectionSignals",   
+    "iu1cl" : "GetChargeCluster(%i)->fChanNumOfFirstSignal",   
+    "iu2cl" : "GetChargeCluster(%i)->fChanNumOfSecondSignal",   
+    "iu3cl" : "GetChargeCluster(%i)->fChanNumOfThirdSignal",   
+    "iu4cl" : "GetChargeCluster(%i)->fChanNumOfFourthSignal",   
+    "nvchcl" : "GetChargeCluster(%i)->fNumberOfVChannels",  
+    "iv1cl" : "GetChargeCluster(%i)->fVChannelNumberOne",   
+    "iv2cl" : "GetChargeCluster(%i)->fVChannelNumberTwo",   
+    "dhalfcl" : "GetChargeCluster(%i)->fDetectorHalf", 
+    "evcl" : "GetChargeCluster(%i)->fEnergyInVChannels",    
+
+
+    "nusig" : "GetNumWires()",             
+    "ncl" : "GetNumChargeClusters()",             
+    "nsc" : "GetNumScintillationClusters()",             
+    "usig_ch" : "GetUWireSignal(%i)->fChannel",             
+    "usig_e" : "GetUWireSignal(%i)->fEnergy",              
+    "usig_deltae" : "GetUWireSignal(%i)->fEnergyError",         
+    "usig_t" : "GetUWireSignal(%i)->fTime",              
+    "usig_deltat" : "GetUWireSignal(%i)->fTimeError",         
+    "usig_baseline" : "GetUWireSignal(%i)->fBaseline",       
+    "usig_deltabaseline" : "GetUWireSignal(%i)->fBaselineError",  
+    "usig_chi2" : "GetUWireSignal(%i)->fChiSquare",           
     "nsig" : "GetWaveformData()->GetNumWaveforms()",
 
     "compton_e" : "fCompton.fEnergy",
@@ -175,28 +175,10 @@ mapping_dict = {
     "compton_dy2" : "fCompton.fY2Err",
     "compton_dz2" : "fCompton.fZ2Err",
      
-    "ghcl" : "GetReconstructedChargeCluster(%i)->fIsGhost",    
-    "tdcl" : "GetReconstructedChargeCluster(%i)->fIs3DCluster",    
-    "fidcl" : "GetReconstructedChargeCluster(%i)->fIsFiducial",   
+    "ghcl" : "GetChargeCluster(%i)->fIsGhost",    
+    "tdcl" : "GetChargeCluster(%i)->fIs3DCluster",    
+    "fidcl" : "GetChargeCluster(%i)->fIsFiducial",   
     "nsample" : "GetWaveformData()->fNumSamples",
-     
-        
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-
-
     #"chan" : "GetWaveformData().GetNumWaveforms()",
 # Must handle data specially...
     #"nele" : "", 
