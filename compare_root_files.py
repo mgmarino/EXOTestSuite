@@ -19,9 +19,9 @@ mapping_dict = {
     "bb2n" : "fIsbb2nCandidate",  
     "alpha" : "fIsAlphaCandidate", 
     "nsite" : "fNumberOfSites", 
-    "errec" : "fTotalRawReconstructedEnergy", 
+    "errec" : "fTotalRawEnergy", 
     "eprec" : "fTotalPurityCorrectedEnergy", 
-    "ecrec" : "fTotalGridEfficiencyCorrectedReconstructedEnergy", 
+    "ecrec" : "fTotalGridEffCorrectedEnergy", 
     "depth" : "fDepth", 
     "ecsum" : "fCorrectedEnergySum", 
     "header" : "fEventHeader.fHeaderString",        
@@ -90,9 +90,9 @@ mapping_dict = {
     "expart" : "fMonteCarloData.GetParticleInformation(%i).fExcitedStatekeV", 
 
 
-    "apd_hits" : "fMonteCarloData.GetAPDInfo(%i).fNumHits", 
-    "eapd" : "fMonteCarloData.GetAPDInfo(%i).fEnergy",     
-    "qapd" : "fMonteCarloData.GetAPDInfo(%i).fCharge",     
+    "apd_hits" : "fMonteCarloData.GetAPDHit(%i).fNumHits", 
+    "eapd" : "fMonteCarloData.GetAPDHit(%i).fEnergy",     
+    "qapd" : "fMonteCarloData.GetAPDHit(%i).fCharge",     
 
     "ixq" : "fMonteCarloData.GetPixelatedChargeDeposit(%i).fX", 
     "iyq" : "fMonteCarloData.GetPixelatedChargeDeposit(%i).fY", 
@@ -100,65 +100,65 @@ mapping_dict = {
     "etq" : "fMonteCarloData.GetPixelatedChargeDeposit(%i).fTotalEnergykeV", 
     "eiq" : "fMonteCarloData.GetPixelatedChargeDeposit(%i).fTotalIonizationEnergykeV", 
 
-    "c1sc" : "GetReconstructedScintillationCluster(%i).fCountsOnAPDPlaneOne",       
-    "c1errsc" : "GetReconstructedScintillationCluster(%i).fCountsOnAPDPlaneOneError",    
-    "c2sc" : "GetReconstructedScintillationCluster(%i).fCountsOnAPDPlaneTwo",       
-    "c2errsc" : "GetReconstructedScintillationCluster(%i).fCountsOnAPDPlaneTwoError",    
-    "c1sumsc" : "GetReconstructedScintillationCluster(%i).fCountsSumOnAPDPlaneOne",    
-    "c1sumerrsc" : "GetReconstructedScintillationCluster(%i).fCountsSumOnAPDPlaneOneError", 
-    "c2sumsc" : "GetReconstructedScintillationCluster(%i).fCountsSumOnAPDPlaneTwo",    
-    "c2sumerrsc" : "GetReconstructedScintillationCluster(%i).fCountsSumOnAPDPlaneTwoError", 
+    "c1sc" : "GetScintillationCluster(%i).fCountsOnAPDPlaneOne",       
+    "c1errsc" : "GetScintillationCluster(%i).fCountsOnAPDPlaneOneError",    
+    "c2sc" : "GetScintillationCluster(%i).fCountsOnAPDPlaneTwo",       
+    "c2errsc" : "GetScintillationCluster(%i).fCountsOnAPDPlaneTwoError",    
+    "c1sumsc" : "GetScintillationCluster(%i).fCountsSumOnAPDPlaneOne",    
+    "c1sumerrsc" : "GetScintillationCluster(%i).fCountsSumOnAPDPlaneOneError", 
+    "c2sumsc" : "GetScintillationCluster(%i).fCountsSumOnAPDPlaneTwo",    
+    "c2sumerrsc" : "GetScintillationCluster(%i).fCountsSumOnAPDPlaneTwoError", 
 
-    #"csc" : "GetReconstructedScintillationCluster(%i).GetGangInfo(%i).fCounts",
-    #"cerrsc" : "GetReconstructedScintillationCluster(%i).GetGangInfo(%i).fCountsErr",
     "chi2_APD1" : "fChiSquaredAPDOne",  
     "chi2_APD2" : "fChiSquaredAPDTwo",  
 
-    "xsc" : "GetReconstructedScintillationCluster(%i).fX",        
-    "ysc" : "GetReconstructedScintillationCluster(%i).fY",        
-    "zsc" : "GetReconstructedScintillationCluster(%i).fZ",        
-    "tsc" : "GetReconstructedScintillationCluster(%i).fTime",        
-    "rsc" : "GetReconstructedScintillationCluster(%i).fRadius",        
-    "esc" : "GetReconstructedScintillationCluster(%i).fEnergy",        
-    "algsc" : "GetReconstructedScintillationCluster(%i).fAlgorithmUsed",      
+    "xsc" : "GetScintillationCluster(%i).fX",        
+    "ysc" : "GetScintillationCluster(%i).fY",        
+    "zsc" : "GetScintillationCluster(%i).fZ",        
+    "tsc" : "GetScintillationCluster(%i).fTime",        
+    "rsc" : "GetScintillationCluster(%i).fRadius",        
+    "esc" : "GetScintillationCluster(%i).fEnergy",        
+    "algsc" : "GetScintillationCluster(%i).fAlgorithmUsed",      
 
-    "xcl" : "GetReconstructedChargeCluster(%i).fX",  
-    "ycl" : "GetReconstructedChargeCluster(%i).fY",  
-    "ucl" : "GetReconstructedChargeCluster(%i).fU",  
-    "vcl" : "GetReconstructedChargeCluster(%i).fV",  
-    "zcl" : "GetReconstructedChargeCluster(%i).fZ",  
-    "dtcl" : "GetReconstructedChargeCluster(%i).fDriftTime", 
-    "tcl" : "GetReconstructedChargeCluster(%i).fCollectionTime",  
-
-
-    "ercl" : "GetReconstructedChargeCluster(%i).fRawEnergy",   
-    "eccl" : "GetReconstructedChargeCluster(%i).fCorrectedEnergy",   
-    "epcl" : "GetReconstructedChargeCluster(%i).fPurityCorrectedEnergy",   
-    "eerrcl" : "GetReconstructedChargeCluster(%i).fCorrectedEnergyError", 
-    "ncscl" : "GetReconstructedChargeCluster(%i).fNumberOfCollectionSignals",   
-    "iu1cl" : "GetReconstructedChargeCluster(%i).fChannelNumberOfFirstSignal",   
-    "iu2cl" : "GetReconstructedChargeCluster(%i).fChannelNumberOfSecondSignal",   
-    "iu3cl" : "GetReconstructedChargeCluster(%i).fChannelNumberOfThirdSignal",   
-    "iu4cl" : "GetReconstructedChargeCluster(%i).fChannelNumberOfFourthSignal",   
-    "nvchcl" : "GetReconstructedChargeCluster(%i).fNumberOfVChannels",  
-    "iv1cl" : "GetReconstructedChargeCluster(%i).fVChannelNumberOne",   
-    "iv2cl" : "GetReconstructedChargeCluster(%i).fVChannelNumberTwo",   
-    "dhalfcl" : "GetReconstructedChargeCluster(%i).fDetectorHalf", 
-    "evcl" : "GetReconstructedChargeCluster(%i).fEnergyInVChannels",    
+    "xcl" : "GetChargeCluster(%i).fX",  
+    "ycl" : "GetChargeCluster(%i).fY",  
+    "ucl" : "GetChargeCluster(%i).fU",  
+    "vcl" : "GetChargeCluster(%i).fV",  
+    "zcl" : "GetChargeCluster(%i).fZ",  
+    "dtcl" : "GetChargeCluster(%i).fDriftTime", 
+    "tcl" : "GetChargeCluster(%i).fCollectionTime",  
 
 
-    "nusig" : "GetNumReconstructedWires()",             
-    "ncl" : "GetNumReconstructedChargeClusters()",             
-    "nsc" : "GetNumReconstructedScintillationClusters()",             
-    "usig_ch" : "GetReconstructedUWireSignal(%i).fChannel",             
-    "usig_e" : "GetReconstructedUWireSignal(%i).fEnergy",              
-    "usig_deltae" : "GetReconstructedUWireSignal(%i).fEnergyError",         
-    "usig_t" : "GetReconstructedUWireSignal(%i).fTime",              
-    "usig_deltat" : "GetReconstructedUWireSignal(%i).fTimeError",         
-    "usig_baseline" : "GetReconstructedUWireSignal(%i).fBaseline",       
-    "usig_deltabaseline" : "GetReconstructedUWireSignal(%i).fBaselineError",  
-    "usig_chi2" : "GetReconstructedUWireSignal(%i).fChiSquare",           
+    "ercl" : "GetChargeCluster(%i).fRawEnergy",   
+    "eccl" : "GetChargeCluster(%i).fCorrectedEnergy",   
+    "epcl" : "GetChargeCluster(%i).fPurityCorrectedEnergy",   
+    "eerrcl" : "GetChargeCluster(%i).fCorrectedEnergyError", 
+    "ncscl" : "GetChargeCluster(%i).fNumberOfCollectionSignals",   
+    "iu1cl" : "GetChargeCluster(%i).fChanNumOfFirstSignal",   
+    "iu2cl" : "GetChargeCluster(%i).fChanNumOfSecondSignal",   
+    "iu3cl" : "GetChargeCluster(%i).fChanNumOfThirdSignal",   
+    "iu4cl" : "GetChargeCluster(%i).fChanNumOfFourthSignal",   
+    "nvchcl" : "GetChargeCluster(%i).fNumberOfVChannels",  
+    "iv1cl" : "GetChargeCluster(%i).fVChannelNumberOne",   
+    "iv2cl" : "GetChargeCluster(%i).fVChannelNumberTwo",   
+    "dhalfcl" : "GetChargeCluster(%i).fDetectorHalf", 
+    "evcl" : "GetChargeCluster(%i).fEnergyInVChannels",    
+
+
+    "nusig" : "GetNumUWireSignals()",             
+    "ncl" : "GetNumChargeClusters()",             
+    "nsc" : "GetNumScintillationClusters()",             
+    "usig_ch" : "GetUWireSignal(%i).fChannel",             
+    "usig_e" : "GetUWireSignal(%i).fEnergy",              
+    "usig_deltae" : "GetUWireSignal(%i).fEnergyError",         
+    "usig_t" : "GetUWireSignal(%i).fTime",              
+    "usig_deltat" : "GetUWireSignal(%i).fTimeError",         
+    "usig_baseline" : "GetUWireSignal(%i).fBaseline",       
+    "usig_deltabaseline" : "GetUWireSignal(%i).fBaselineError",  
+    "usig_chi2" : "GetUWireSignal(%i).fChiSquare",           
     "nsig" : "GetWaveformData().GetNumWaveforms()",
+
+    "chi2_APD_gang" : "GetAPDSignal(%i).fChiSquareGang",
 
     "compton_e" : "fCompton.fEnergy",
     "compton_fom" : "fCompton.fFOM",
@@ -179,24 +179,6 @@ mapping_dict = {
     "compton_dz2" : "fCompton.fZ2Err",
     "nsample" : "GetWaveformData()->fNumSamples",
      
-    
-        
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-
-
     #"chan" : "GetWaveformData().GetNumWaveforms()",
 # Must handle data specially...
     #"nsample" : "",
@@ -232,9 +214,13 @@ tref_list = [
    "scint_ichargecluster",
 ]
 special_bool = {
-    "ghcl" : "GetReconstructedChargeCluster(%i).fIsGhost",    
-    "tdcl" : "GetReconstructedChargeCluster(%i).fIs3DCluster",    
-    "fidcl" : "GetReconstructedChargeCluster(%i).fIsFiducial",   
+    "ghcl" : "GetChargeCluster(%i).fIsGhost",    
+    "tdcl" : "GetChargeCluster(%i).fIs3DCluster",    
+    "fidcl" : "GetChargeCluster(%i).fIsFiducial",   
+}
+gang_info = {
+    "csc" : "GetScintillationCluster(%i).GetGangInfo(%i).fCount",
+    "cerrsc" : "GetScintillationCluster(%i).GetGangInfo(%i).fCountErr",
 }
 not_yet_implemented = []
 
@@ -245,6 +231,87 @@ def compare(old, new, old_branch, new_branch, entry):
         print old, new
         print '*'*60
 
+def compare_gang_info(branch, old, new_event):
+    temp_str = gang_info[branch]  
+    num_apds = 74
+    i = 0
+    total_num = 0
+    #for clus in new_event.GetScintillationClusterArray():
+    #    total_num += clus.GetNumGangInfo()
+    #print total_num, len(old)
+    for val in old:
+        new_value =  eval("new_event." + (temp_str % (i/num_apds, i%num_apds))) 
+        compare(val, new_value, branch, "", "")
+        i += 1
+        
+
+def compare_tref(branch, old, new_event, old_tree):
+    # Unfortunately, have to do this by hand
+    i = 0
+    if branch == "usig_ichargecluster":
+        for index in old: 
+            uwire_signal = new_event.GetUWireSignal(i)
+            charge_cluster = uwire_signal.GetChargeCluster()
+            compare(old_tree.xcl[index], charge_cluster.fX, "usig_ichargecluster", "", "")
+            compare(old_tree.ycl[index], charge_cluster.fY, "usig_ichargecluster", "", "")
+            i += 1
+    elif branch == "isccl":
+        for index in old: 
+            if index == -999: continue
+            charge_cluster = new_event.GetChargeCluster(i)
+            scint_cluster = charge_cluster.GetScintillationCluster()
+            compare( old_tree.xsc[index], scint_cluster.fX, "isccl", "", "")
+            compare( old_tree.ysc[index], scint_cluster.fY, "isccl", "", "")
+            i += 1
+    elif branch == "iu1clcs":
+        for index in old: 
+            if index == -1: continue
+            charge_cluster = new_event.GetChargeCluster(i)
+            uwire_signal = charge_cluster.GetFirstUWireSignal()
+            compare(old_tree.usig_t[index], uwire_signal.fTime, "iu1clcs", "", "")
+            compare(old_tree.usig_e[index], uwire_signal.fEnergy, "iu1clcs", "", "")
+            i += 1
+    elif branch == "iu2clcs":
+        for index in old: 
+            if index == -1: continue
+            charge_cluster = new_event.GetChargeCluster(i)
+            uwire_signal = charge_cluster.GetSecondUWireSignal()
+            compare(old_tree.usig_t[index], uwire_signal.fTime, "iu2clcs", "", "")
+            compare(old_tree.usig_e[index], uwire_signal.fEnergy, "iu2clcs", "", "")
+            i += 1
+    elif branch == "iu3clcs":
+        for index in old: 
+            if index == -1: continue
+            charge_cluster = new_event.GetChargeCluster(i)
+            uwire_signal = charge_cluster.GetThirdUWireSignal()
+            compare(old_tree.usig_t[index], uwire_signal.fTime, "iu3clcs", "", "")
+            compare(old_tree.usig_e[index], uwire_signal.fEnergy, "iu3clcs", "", "")
+            i += 1
+    elif branch == "iu4clcs":
+        for index in old: 
+            if index == -1: continue
+            charge_cluster = new_event.GetChargeCluster(i)
+            uwire_signal = charge_cluster.GetFourthUWireSignal()
+            compare(old_tree.usig_t[index], uwire_signal.fTime, "iu4clcs", "", "")
+            compare(old_tree.usig_e[index], uwire_signal.fEnergy, "iu4clcs", "", "")
+            i += 1
+    elif branch == "scint_ichargecluster":
+        for index in old: 
+            if index == -1: continue
+            scint_cluster = new_event.GetScintillationCluster(i)
+            j = 0
+            for more in index: 
+                if more.GetVal() >= len(old_tree.xcl):
+                    print "Problem with old tree"
+                    j += 1
+                    continue
+                if more.GetVal() < 0: continue
+                charge_cluster = scint_cluster.GetChargeClusterAt(j)
+                compare(old_tree.xcl[more.GetVal()], charge_cluster.fX, "scint_ichargecluster", "", "")
+                compare(old_tree.ycl[more.GetVal()], charge_cluster.fY, "scint_ichargecluster", "", "")
+                j += 1
+            i += 1
+
 def compare_trees(old_tree, new_tree):
     for i in range(old_tree.GetEntries()):
         old_tree.GetEntry(i)
@@ -252,7 +319,10 @@ def compare_trees(old_tree, new_tree):
         print i
         for branch in old_tree.GetListOfBranches():
             if branch.GetName() in tref_list:
-                
+                compare_tref(branch.GetName(), getattr(old_tree, branch.GetName()), new_tree.EventBranch, old_tree) 
+                continue
+            if branch.GetName() in gang_info:
+                compare_gang_info(branch.GetName(), getattr(old_tree, branch.GetName()), new_tree.EventBranch) 
                 continue
             if branch.GetName() in ignored:
                 continue
