@@ -46,7 +46,7 @@ use input %s toutput
     for text in extratext: 
         append += "%s\n" % text
     append += """
-%maxevents 2
+%maxevents 2000
 printmodulo 1000
 show
 begin
